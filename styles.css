@@ -1,0 +1,30 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+
+}
+
+.headerCont{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+header{
+    font-size: 2em;
+    
+}
+.formContainer{
+    height: 300px;
+    width: 200px;
+    margin: 50px;
+    border: 1px solid black;
+}
+#bookForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
