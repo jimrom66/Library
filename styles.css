@@ -2,7 +2,7 @@ html,body{
     margin: 0;
     padding: 0;
     height: 100%;
-    
+   
 
 }
 
@@ -27,4 +27,27 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-rows: 200px repeat(4);
+    gap: 20px;
+    column-gap: 50px;
+    box-sizing:content-box
+    
+    /* border: 1px solid red; */
+}
+.book{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: bisque;
+    border-radius: 15px;
+    
 }

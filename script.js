@@ -40,33 +40,35 @@ function showBooks(){
     bookTitle.appendChild(titleText);
 
     const bookAuthor=document.createElement("p");
-    const authorText=document.createTextNode(book.author);
+    const authorText=document.createTextNode(`Book author: ${book.author}`);
     bookAuthor.appendChild(authorText);
 
     const bookGenre=document.createElement("p");
-    const genreText=document.createTextNode(book.genre);
+    const genreText=document.createTextNode(`Genre:${book.genre}`);
     bookGenre.appendChild(genreText);
 
     const bookPages=document.createElement("p");
-    const pagesText=document.createTextNode(book.pages);
+    const pagesText=document.createTextNode(`Pages ${book.pages}`);
     bookPages.appendChild(pagesText);
 
     const bookRead=document.createElement("p");
     const readbox=document.createTextNode(`Status: ${book.read ? 'Read' : 'Not Read'}`);
     bookRead.appendChild(readbox);
 
-    bookContainer.appendChild(bookTitle);
-    bookContainer.appendChild(bookAuthor);
-    bookContainer.appendChild(bookGenre);
-    bookContainer.appendChild(bookPages);
-    bookContainer.appendChild(bookRead);
+    bookDiv.appendChild(bookTitle);
+    bookDiv.appendChild(bookAuthor);
+    bookDiv.appendChild(bookGenre);
+    bookDiv.appendChild(bookPages);
+    bookDiv.appendChild(bookRead);
+
+    bookContainer.appendChild(bookDiv);
 
     
     })
 }
 
-const submition= document.querySelector(".submit")
-submition.addEventListener("click",function(event){
+const submition= document.getElementById("bookForm")
+submition.addEventListener("submit",function(event){
     addBookToLibrary(event)
     showBooks()
 })
