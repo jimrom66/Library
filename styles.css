@@ -1,7 +1,7 @@
 html,body{
     margin: 0;
     padding: 0;
-    height: 100%;
+    
    
 
 }
@@ -20,13 +20,16 @@ header{
     height: 300px;
     width: 200px;
     margin: 50px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    background-color: bisque;
+    border-radius: 15px;
 }
 #bookForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .box{
@@ -36,6 +39,7 @@ header{
 }
 
 .container{
+    margin-top: 30px;
     display: grid;
     grid-template-columns: 150px 150px 150px 150px;
     grid-template-rows: 200px repeat(4);
@@ -49,6 +53,8 @@ header{
     font-family: 'Times New Roman', Times, serif;
     background-color: bisque;
     border-radius: 15px;
+    width: 150px;
+    height: 200px;
 
     
 }
@@ -58,4 +64,17 @@ header{
     background-color: rgb(150, 105, 51);
     border-radius: 15px;
 
+}
+
+#open-dialog-button{
+    height: 70px;
+    width: 70px;
+    border-radius: 15px;
+    background-color: bisque;
+
+}
+#open-dialog-button:hover{
+    background-color: rgb(105, 77, 42);
+    transition: 0.3s ease;
+    color: azure;
 }

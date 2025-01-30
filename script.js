@@ -86,5 +86,21 @@ function showBooks(){
 const submition= document.getElementById("bookForm")
 submition.addEventListener("submit",function(event){
     addBookToLibrary(event)
-    showBooks()
+    showBooks();
+    this.reset();
+    bookDialogue.close();
+
+    
 })
+
+const openDialogueBtn=document.getElementById("open-dialog-button");
+const closeDialogueBtn=document.getElementById("close-dialog-button");
+const bookDialogue=document.getElementById("book-dialog");
+
+openDialogueBtn.onclick = function() {
+    bookDialogue.showModal();
+}
+
+closeDialogueBtn.onclick = function() {
+    bookDialogue.close();
+}
