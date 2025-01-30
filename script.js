@@ -1,4 +1,8 @@
 const library=[];
+const submition= document.getElementById("bookForm")
+const openDialogueBtn=document.getElementById("open-dialog-button");
+const closeDialogueBtn=document.getElementById("close-dialog-button");
+const bookDialogue=document.getElementById("book-dialog");
 
 
 function book(title,author,genre,pages,read){
@@ -31,7 +35,8 @@ function addBookToLibrary(event){
 function showBooks(){
     const bookContainer=document.querySelector(".container");
     bookContainer.innerHTML = "";
-    library.forEach((book) => {
+
+    library.forEach((book,index) => {
     const bookDiv = document.createElement('div');
     bookDiv.classList.add("book");
 
@@ -68,13 +73,19 @@ function showBooks(){
     const labelText=document.createTextNode(`Have you read this?`);
     bookLabel.appendChild(labelText);
 
-    const removeButton=document.createElement("button");
+    const removeButton = document.createElement("button");
     removeButton.classList.add("remove");
-    const removeButtonText=document.createTextNode("X");
+    const removeButtonText = document.createTextNode("X");
     removeButton.appendChild(removeButtonText);
-    removeButton.addEventListener("click",function(){
-        bookDiv.remove();
-    })
+    
+    // Set the index in the dataset for the remove button
+    removeButton.dataset.index = index;
+
+    removeButton.addEventListener("click", function () {
+        const index = parseInt(this.dataset.index, 10); // Get the index of the book to remove
+        library.splice(index, 1); // Remove the book from the library array
+        showBooks(); // Re-render the updated list of books
+    });
 
 
     bookDiv.appendChild(removeButton)
@@ -91,7 +102,7 @@ function showBooks(){
     })
 }
 
-const submition= document.getElementById("bookForm")
+
 submition.addEventListener("submit",function(event){
     addBookToLibrary(event)
     showBooks();
@@ -101,9 +112,7 @@ submition.addEventListener("submit",function(event){
     
 })
 
-const openDialogueBtn=document.getElementById("open-dialog-button");
-const closeDialogueBtn=document.getElementById("close-dialog-button");
-const bookDialogue=document.getElementById("book-dialog");
+
 
 openDialogueBtn.onclick = function() {
     bookDialogue.showModal();
