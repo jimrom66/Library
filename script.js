@@ -23,7 +23,7 @@ function addBookToLibrary(event){
 
     const newBook= new book(title, author, genre, pages, read);
 
-    library.push(newBook);
+    library.unshift(newBook);
 
 
 }
@@ -51,14 +51,30 @@ function showBooks(){
     const pagesText=document.createTextNode(`Pages ${book.pages}`);
     bookPages.appendChild(pagesText);
 
-    const bookRead=document.createElement("p");
-    const readbox=document.createTextNode(`Status: ${book.read ? 'Read' : 'Not Read'}`);
-    bookRead.appendChild(readbox);
+    const bookRead=document.createElement("input");
+    bookRead.setAttribute("type","checkbox");
+    bookRead.setAttribute("id","read");
+    if (book.read) {
+        bookRead.setAttribute("checked", "checked");
+        bookDiv.classList="read-book";
+    }
+    bookRead.addEventListener("change",function(){
+        bookDiv.classList=bookRead.checked?"read-book":"book";
+    })
+    
+
+    const bookLabel=document.createElement("label");
+    bookLabel.setAttribute("for","read");
+    labelText=document.createTextNode(`Have you read this?`);
+    bookLabel.appendChild(labelText);
+
+
 
     bookDiv.appendChild(bookTitle);
     bookDiv.appendChild(bookAuthor);
     bookDiv.appendChild(bookGenre);
     bookDiv.appendChild(bookPages);
+    bookDiv.appendChild(bookLabel);
     bookDiv.appendChild(bookRead);
 
     bookContainer.appendChild(bookDiv);
