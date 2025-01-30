@@ -65,19 +65,27 @@ function showBooks(){
 
     const bookLabel=document.createElement("label");
     bookLabel.setAttribute("for","read");
-    labelText=document.createTextNode(`Have you read this?`);
+    const labelText=document.createTextNode(`Have you read this?`);
     bookLabel.appendChild(labelText);
 
+    const removeButton=document.createElement("button");
+    removeButton.classList.add("remove");
+    const removeButtonText=document.createTextNode("X");
+    removeButton.appendChild(removeButtonText);
+    removeButton.addEventListener("click",function(){
+        bookDiv.remove();
+    })
 
 
+    bookDiv.appendChild(removeButton)
     bookDiv.appendChild(bookTitle);
     bookDiv.appendChild(bookAuthor);
     bookDiv.appendChild(bookGenre);
     bookDiv.appendChild(bookPages);
     bookDiv.appendChild(bookLabel);
     bookDiv.appendChild(bookRead);
-
     bookContainer.appendChild(bookDiv);
+
 
     
     })
